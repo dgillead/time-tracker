@@ -13,10 +13,11 @@
 ActiveRecord::Schema.define(version: 20170715004735) do
 
   create_table "projects", force: :cascade do |t|
-    t.string "name",        null: false
-    t.string "description", null: false
-    t.date   "start_date",  null: false
-    t.date   "end_date"
+    t.string  "name",        null: false
+    t.string  "description", null: false
+    t.date    "start_date",  null: false
+    t.date    "end_date"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170715004735) do
     t.boolean "is_billable", null: false
     t.time    "start_time",  null: false
     t.time    "end_time",    null: false
+    t.integer "project_id"
   end
 
 end

@@ -1,8 +1,8 @@
 require_relative '../spec_helper.rb'
-
+require 'pry'
 describe 'project controller' do
 
-  describe 'GET index' do
+  describe 'GET /projects' do
     let (:user) do
       User.create(email: 'someone@mail.com', first_name: 'Someone', last_name: 'Smith', password: '123')
     end
@@ -16,6 +16,25 @@ describe 'project controller' do
       expect(last_response.body).to include('description')
       expect(last_response.body).to include('start_date')
       expect(last_response.body).to include('end_date')
+    end
+  end
+
+  describe 'POST /projects' do
+    let (:user) do
+      User.create(email: 'someone@mail.com', first_name: 'Someone', last_name: 'Smith', password: '123')
+    end
+
+    it 'stores the user created project in the db' do
+      sign_in(user)
+      params = { name: 'First Project', description: 'Awesome', start_date: '09/09/1900', end_date: '01/01/2999' }
+      post '/projects', params
+      follow_redirect!
+      
+      expect(last_response.body).to include('Your Projects')
+      expect(last_response.body).to include('<a')
+      expect(last_response.body).to include('</a>')
+      expect(last_response.body).to include('<li')
+      expect(last_response.body).to include('</li>')
     end
   end
 end

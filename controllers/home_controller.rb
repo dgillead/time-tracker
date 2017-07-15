@@ -6,11 +6,13 @@ class App
   end
 
   get '/register' do
-    erb :'home/register'
+    status_message = ''
+    erb :'home/register', locals: { status_message: status_message }
   end
 
   get '/login' do
-    erb :'home/login'
+    status_message = ''
+    erb :'home/login', locals: { status_message: status_message }
   end
 
   post '/register' do
@@ -18,7 +20,8 @@ class App
     if user.save
       redirect "user/#{user.id}/sessions"
     else
-      erb :'home/register'
+      status_message = 'Please ensure all fields are filled out correctly.'
+      erb :'home/register', locals: { status_message: status_message }
     end
   end
 
@@ -28,8 +31,14 @@ class App
     if user
       session[:user_id] = user.id
       redirect "user/#{user.id}/sessions"
+    else
+      status_message = 'Please ensure your password and email match.'
+      erb :'home/login', locals: { status_message: status_message }
     end
+  end
 
+  def authorize!
+    redirect "/login" unless current_user
   end
 
   def current_user
