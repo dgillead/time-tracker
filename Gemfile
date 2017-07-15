@@ -13,3 +13,4 @@ gem 'pry'
 
 gem 'rack-test'
 gem 'rspec'
+gem 'bcrypt'

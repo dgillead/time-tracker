@@ -2,7 +2,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/flash'
 
-set :database, { adapter: "sqlite3", database: "database.sqlite3" }
+set :database, { adapter: "sqlite3", database: "time_clock.sqlite3" }
 
 class App < Sinatra::Base
   register Sinatra::ActiveRecordExtension
