@@ -9,6 +9,7 @@ class App < Sinatra::Base
   register Sinatra::Flash
 
   enable :sessions
+  set :session_secret, "some-secret-key"
 
   Dir.glob("models/*.rb").each { |r| require_relative r }
   Dir.glob("controllers/*.rb").each { |r| require_relative r }
