@@ -43,5 +43,24 @@ describe "home controller" do
     it "allows the user to register and saves that user\'s information" do
       expect{ post '/register', params }.to change{ User.count }.by(1)
     end
+
+    it 'redirects the user to view all of their work sessions if the account was created' do
+      post '/register', params
+      follow_redirect!
+
+      expect(last_response.body).to include('Your Created Work Sessions')
+    end
+  end
+
+  describe 'GET /user/:id/sessions' do
+    let (:user) do
+      User.create(email: 'someone@mail.com', first_name: 'Someone', last_name: 'Smith', password: '123')
+    end
+
+    it "displays all of the current user\'s sessions" do
+      get "user/#{user.id}/sessions", user
+
+      expect(last_response.body).to include('Your Created Work Sessions')
+    end
   end
 end

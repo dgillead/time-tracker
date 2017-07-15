@@ -15,6 +15,10 @@ class App
 
   post '/register' do
     user = User.new(params)
-    user.save
+    if user.save
+      redirect "user/#{user.id}/sessions"
+    else
+      erb :'home/register'
+    end
   end
 end
