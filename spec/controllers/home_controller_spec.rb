@@ -34,4 +34,14 @@ describe "home controller" do
       expect(last_response.body).to include('email')
     end
   end
+
+  describe 'POST /register' do
+    let (:params) do
+      { email: 'someone@mail.com', first_name: 'Someone', last_name: 'Smith', password: '123' }
+    end
+
+    it "allows the user to register and saves that user\'s information" do
+      expect{ post '/register', params }.to change{ User.count }.by(1)
+    end
+  end
 end
