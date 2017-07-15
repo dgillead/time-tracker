@@ -75,4 +75,19 @@ describe "home controller" do
       expect(last_response.body).to include('Your Created Work Sessions')
     end
   end
+
+  describe 'GET /logout' do
+    let (:user) do
+      User.create(email: 'someone@mail.com', first_name: 'Someone', last_name: 'Smith', password: '123')
+    end
+
+    it 'logs the user out and redirects to log in page' do
+      sign_in(user)
+
+      get '/logout'
+      follow_redirect!
+
+      expect(last_response.body).to include('Log In to your Account')
+    end
+  end
 end

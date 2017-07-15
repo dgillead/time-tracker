@@ -15,6 +15,11 @@ class App
     erb :'home/login', locals: { status_message: status_message }
   end
 
+  get '/logout' do
+    session.clear
+    redirect '/login'
+  end
+
   post '/register' do
     user = User.new(params)
     if user.save
@@ -32,7 +37,7 @@ class App
       session[:user_id] = user.id
       redirect "user/#{user.id}/sessions"
     else
-      status_message = 'Please ensure your password and email match.'
+      status_message = 'Incorrect email or password.'
       erb :'home/login', locals: { status_message: status_message }
     end
   end
