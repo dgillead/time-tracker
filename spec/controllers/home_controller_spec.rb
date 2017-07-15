@@ -35,6 +35,18 @@ describe "home controller" do
     end
   end
 
+  describe 'POST /login' do
+    it "persists the user session" do
+      user = User.create!(first_name: "Dan", email: "test@codeplatoon.com", password: "abc1234", last_name: 'Smith')
+      params = { email: user.email, password: user.password }
+
+      post "/login", params
+      follow_redirect!
+
+      expect(last_response.body).to include('Your Created Work Sessions')
+    end
+  end
+
   describe 'POST /register' do
     let (:params) do
       { email: 'someone@mail.com', first_name: 'Someone', last_name: 'Smith', password: '123' }

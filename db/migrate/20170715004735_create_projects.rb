@@ -5,7 +5,6 @@ class CreateProjects < ActiveRecord::Migration[5.0]
       t.string :description, null: false
       t.date :start_date, null: false
       t.date :end_date
-      t.integer :creator_id
     end
   end
 end
