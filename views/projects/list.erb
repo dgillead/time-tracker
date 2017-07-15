@@ -1,4 +1,6 @@
 <h1>Your Projects</h1>
 <% projects.each do |project|  %>
-  <a href="#"><li><%= project.name %></li></a>
+  <a href="/projects/<%= project.id %>/view"><li><%= project.name %></li></a>
 <% end %>
+
+<a href="/projects"><button class="btn btn-success">Create New Project</button>

@@ -6,15 +6,18 @@ class App
   end
 
   get '/projects/:id/list' do
-    # binding.pry
     projects = Project.where("user_id = ?", current_user.id)
     erb :'projects/list', locals: { projects: projects }
+  end
+
+  get '/projects/:id/view' do
+    project = Project.find_by(id: params[:id])
+    erb :'projects/view', locals: { project: project }
   end
 
   post '/projects' do
     authorize!
     project = current_user.projects.new(params)
-    # binding.pry
     if project.save
       redirect "projects/#{current_user.id}/list"
     else

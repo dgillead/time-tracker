@@ -43,7 +43,7 @@ describe "home controller" do
       post "/login", params
       follow_redirect!
 
-      expect(last_response.body).to include('Your Created Work Sessions')
+      expect(last_response.body).to include('Your Work Sessions')
     end
   end
 
@@ -56,11 +56,11 @@ describe "home controller" do
       expect{ post '/register', params }.to change{ User.count }.by(1)
     end
 
-    it 'redirects the user to view all of their work sessions if the account was created' do
+    it 'redirects the user to the log in page if account is created' do
       post '/register', params
       follow_redirect!
 
-      expect(last_response.body).to include('Your Created Work Sessions')
+      expect(last_response.body).to include('Log In to your Account')
     end
   end
 
@@ -72,7 +72,7 @@ describe "home controller" do
     it "displays all of the current user\'s sessions" do
       get "user/#{user.id}/sessions", user
 
-      expect(last_response.body).to include('Your Created Work Sessions')
+      expect(last_response.body).to include('Your Work Sessions')
     end
   end
 

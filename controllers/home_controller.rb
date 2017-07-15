@@ -23,7 +23,7 @@ class App
   post '/register' do
     user = User.new(params)
     if user.save
-      redirect "user/#{user.id}/sessions"
+      redirect '/login'
     else
       status_message = 'Please ensure all fields are filled out correctly.'
       erb :'home/register', locals: { status_message: status_message }
