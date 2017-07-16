@@ -64,13 +64,14 @@ describe "home controller" do
     end
   end
 
-  describe 'GET /user/:id/sessions' do
+  describe 'GET /work_sessions/:id/list_user' do
     let (:user) do
       User.create(email: 'someone@mail.com', first_name: 'Someone', last_name: 'Smith', password: '123')
     end
 
     it "displays all of the current user\'s sessions" do
-      get "user/#{user.id}/sessions", user
+      sign_in(user)
+      get "/work_sessions/#{user.id}/list_user"
 
       expect(last_response.body).to include('Your Work Sessions')
     end

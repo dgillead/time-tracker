@@ -35,7 +35,7 @@ class App
 
     if user
       session[:user_id] = user.id
-      redirect "user/#{user.id}/sessions"
+      redirect "work_sessions/#{user.id}/list_user"
     else
       status_message = 'Incorrect email or password.'
       erb :'home/login', locals: { status_message: status_message }
