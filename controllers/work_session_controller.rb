@@ -12,6 +12,11 @@ class App
     erb :'work_sessions/list', locals: { work_sessions: work_sessions }
   end
 
+  get '/work_sessions/:id/view' do
+    work_session = WorkSession.find_by(id: params[:id])
+    erb :'work_sessions/view', locals: { work_session: work_session }
+  end
+
   post '/work_sessions' do
     work_session = WorkSession.new(params)
     work_session[:user_id] = current_user.id
