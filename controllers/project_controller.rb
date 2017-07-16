@@ -15,6 +15,11 @@ class App
     erb :'projects/view', locals: { project: project }
   end
 
+  get '/projects/:id/edit' do
+    project = Project.find_by(id: params[:id])
+    erb :'projects/edit', locals: { project: project }
+  end
+
   post '/projects' do
     authorize!
     project = current_user.projects.new(params)
@@ -23,6 +28,12 @@ class App
     else
       erb :'projects/new'
     end
+  end
+
+  put '/projects/:id' do
+    project = Project.find_by(id: params[:id])
+    project.update_attributes(name: params[:name], description: params[:description], start_date: params[:start_date], end_date: params[:end_date])
+    erb :'/projects/view', locals: { project: project }
   end
 
   delete '/projects/:id' do
