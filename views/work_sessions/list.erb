@@ -1,3 +1,7 @@
 <h1>Your Work Sessions</h1>
 
-<a href="/work_sessions/new"><button class="btn btn-success">Create New Session</button></a>
+<% work_sessions.each do |work_session|  %>
+  <a href="/work_session/<%= work_session.id %>/view"><li><%= work_session.description %></li></a>
+<% end %>
+
+<a href="/work_sessions"><button class="btn btn-success">Create New Work Session</button></a>
