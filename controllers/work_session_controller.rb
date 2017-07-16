@@ -38,4 +38,10 @@ class App
     work_session.update_attributes(date: params[:date], description: params[:description], start_time: params[:start_time], end_time: params[:end_time], is_billable: params[:is_billable], project_name: params[:project_name])
     erb :'work_sessions/view', locals: { work_session: work_session }
   end
+
+  delete '/work_sessions/:id' do
+    work_session = WorkSession.find_by(id: params[:id])
+    work_session.destroy
+    redirect "work_sessions/#{current_user.id}/list_user"
+  end
 end

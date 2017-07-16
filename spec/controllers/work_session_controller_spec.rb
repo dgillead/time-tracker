@@ -71,4 +71,16 @@ describe 'work session controller' do
       expect(work_session.is_billable).to eq(false)
     end
   end
+
+  describe 'DELETE /work_sessions/:id' do
+    let (:user) do
+      User.create(email: 'someone@mail.com', first_name: 'Someone', last_name: 'Smith', password: '123')
+    end
+    it 'deletes a work session and removes it from the database' do
+      sign_in(user)
+      work_session = WorkSession.create(date: '01/01/1900', description: 'Stuff', start_time: '01:01:01:AM', end_time: '02:02:02:AM', is_billable: true, project_name: 'First Project')
+
+      expect{ delete "/work_sessions/#{work_session.id}" }.to change{ WorkSession.count }.by(-1)
+    end
+  end
 end
