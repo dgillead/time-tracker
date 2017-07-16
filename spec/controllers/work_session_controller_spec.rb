@@ -48,4 +48,27 @@ describe 'work session controller' do
       expect(last_response.body).to include('First Project')
     end
   end
+
+  describe 'PUT /work_sessions/:id' do
+    let (:user) do
+      User.create(email: 'someone@mail.com', first_name: 'Someone', last_name: 'Smith', password: '123')
+    end
+    let (:project) do
+      Project.create(name: 'First Project', description: 'Awesome', start_date: '09/09/1900', end_date: '01/01/2999')
+    end
+    let (:work_session) do
+      WorkSession.create(date: '01/01/1900', description: 'Stuff', start_time: '01:01:01:AM', end_time: '02:02:02:AM', is_billable: true, project_name: 'First Project')
+    end
+
+    it 'allows a user to edit a work session' do
+      sign_in(user)
+      params = { date: '02/02/9999', description: 'Stuff 2.0', start_time: '01:01:01:AM', end_time: '02:02:02:AM', is_billable: false, project_name: 'First Project'}
+
+      put "work_sessions/#{work_session.id}", params
+      work_session.reload
+
+      expect(work_session.description).to eq('Stuff 2.0')
+      expect(work_session.is_billable).to eq(false)
+    end
+  end
 end

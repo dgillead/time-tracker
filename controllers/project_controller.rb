@@ -7,7 +7,8 @@ class App
 
   get '/projects/:id/list' do
     projects = Project.where("user_id = ?", current_user.id)
-    erb :'projects/list', locals: { projects: projects }
+    user = current_user
+    erb :'projects/list', locals: { projects: projects, user: user }
   end
 
   get '/projects/:id/view' do
