@@ -7,6 +7,7 @@ class CreateWorkSessions < ActiveRecord::Migration[5.0]
       t.time :start_time, null: false
       t.time :end_time, null: false
       t.integer :project_id
+      t.integer :user_id
     end
   end
 end
