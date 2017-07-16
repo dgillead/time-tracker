@@ -9,7 +9,7 @@ User can:
 * view all projects (done)
 * edit a project (done)
 * create a work session (done)
-* delete a work session
+* delete a work session (done)
 * view a work session (done)
 * view all work sessions (done)
-* edit a work session
+* edit a work session (done)
