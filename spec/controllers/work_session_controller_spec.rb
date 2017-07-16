@@ -68,7 +68,7 @@ describe 'work session controller' do
       work_session.reload
 
       expect(work_session.description).to eq('Stuff 2.0')
-      expect(work_session.is_billable).to eq(false)
+      expect(work_session.is_billable).to eq("false")
     end
   end
 

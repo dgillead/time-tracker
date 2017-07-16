@@ -14,4 +14,4 @@ describe 'user controller' do
         expect(last_response.body).to include('Your Account')
       end
     end
-end
+  end
