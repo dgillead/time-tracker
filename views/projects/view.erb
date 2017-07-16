@@ -1,3 +1,10 @@
 <h1><%= project.name %></h1>
 <p><%= project.description %></p>
 <span><%= project.start_date %></span><span><%= project.end_date %></span>
+
+<form action="/projects/<%= project.id %>" method="post">
+  <div>
+    <input  type="hidden" name="_method" value="delete" />
+    <button type="submit" class="btn btn-danger">Delete this Project</button>
+  </div>
+</form>

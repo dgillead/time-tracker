@@ -44,4 +44,17 @@ describe 'project controller' do
       expect(last_response.body).to include('</li>')
     end
   end
+
+  describe 'DELETE /projects/:id' do
+    let (:user) do
+      User.create(email: 'someone@mail.com', first_name: 'Someone', last_name: 'Smith', password: '123')
+    end
+
+    it 'deletes a project and removes it from the database' do
+      sign_in(user)
+      project = Project.create(name: 'First Project', description: 'Awesome', start_date: '09/09/1900', end_date: '01/01/2999')
+
+      expect{ delete "/projects/#{project.id}" }.to change{ Project.count }.by(-1)
+    end
+  end
 end

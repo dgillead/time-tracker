@@ -25,4 +25,10 @@ class App
     end
   end
 
+  delete '/projects/:id' do
+    project = Project.find_by(id: params[:id])
+    project.destroy
+    redirect "/projects/#{current_user.id}/list"
+  end
+
 end
