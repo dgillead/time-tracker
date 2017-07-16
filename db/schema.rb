@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170715004735) do
     t.string  "description", null: false
     t.date    "start_date",  null: false
     t.date    "end_date"
-    t.integer "user_id",     null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20170715004735) do
     t.time    "start_time",   null: false
     t.time    "end_time",     null: false
     t.integer "project_name", null: false
-    t.integer "user_id",      null: false
+    t.integer "user_id"
   end
 
 end

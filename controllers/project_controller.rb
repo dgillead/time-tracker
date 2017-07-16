@@ -21,10 +21,8 @@ class App
   end
 
   post '/projects' do
-    # binding.pry
     project = current_user.projects.new(params)
     if project.save
-      session[:project_id] = project.id # probably need to remove
       redirect "/projects/#{current_user.id}/list"
     else
       erb :'projects/new'

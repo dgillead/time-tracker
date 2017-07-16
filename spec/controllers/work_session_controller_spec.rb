@@ -23,15 +23,10 @@ describe 'work session controller' do
     end
 
     it 'stores the user created work session in the db' do
-      project = Project.create(name: 'First Project', description: 'Awesome', start_date: '09/09/1900', end_date: '01/01/2999')
-      post '/work_sessions'
-      follow_redirect!
+      sign_in(user)
+      params = { date: '01/01/1900', description: 'ok', start_time: '01:01:01:AM', end_time: '02:02:02:AM', is_billable: true, project_name: 'First Project'}
 
-      expect(last_response.body).to include('Your Work Sessions')
-      expect(last_response.body).to include('<a')
-      expect(last_response.body).to include('</a>')
-      expect(last_response.body).to include('<li')
-      expect(last_response.body).to include('</li>')
+      expect{ post '/work_sessions', params }.to change{ WorkSession.count }.by(1)
     end
   end
 end
