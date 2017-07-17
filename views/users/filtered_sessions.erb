@@ -1,7 +1,19 @@
-<% filtered_sessions.each do |filtered_session| %>
-  <h1><%= filtered_session.description %></h1>
-  <p>Date: <%= filtered_session.date %></p>
-  <p>Start Time: <%= filtered_session.start_time %></p>
-  <p>End Time: <%= filtered_session.start_time %></p>
-  <p>Belongs To Project: <%= filtered_session.project_name %></p>
-<% end %>
+<h1 class="text-center">Filtered Sessions</h1>
+<div class="container text-center">
+  <% filtered_sessions.each do |filtered_session| %>
+  <div class="panel panel-default">
+  <div class="panel-heading"><%= filtered_session.description %></div>
+    <div class="panel-body">
+      <p>Date: <%= filtered_session.date %></p>
+      <p>Start Time: <%= filtered_session.start_time %></p>
+      <p>End Time: <%= filtered_session.start_time %></p>
+      <p>Belongs To Project: <%= filtered_session.project_name %></p>
+    </div>
+  </div>
+  <% end %>
+  <div class="text-center">
+    <a href="/projects/<%= current_user.id %>/list"><button class="btn btn-info">See Your Projects</button></a>
+    <a href="/work_sessions/<%= current_user.id %>/list_user"><button class="btn btn-info">See Your Work Sessions</button></a>
+    <a href="/users/<%= current_user.id %>"><button class="btn btn-primary">Your Account</button></a>
+  </div>
+</div>

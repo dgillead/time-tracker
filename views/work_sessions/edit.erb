@@ -1,39 +1,41 @@
-</h1>Edit This Work Session</h1>
-<form method="post" action="/work_sessions/<%= work_session.id %>">
-  <input type="hidden" name="_method" value="put">
-  <div class="form-group row">
-    <div class="col-xs-12 col-md-6">
-      <label for="date">Date of Session:</label>
-      <input type="date" class="form-control" id="date" name="date">
+<h1 class="text-center">Edit This Work Session</h1>
+<div class="container">
+  <form method="post" action="/work_sessions/<%= work_session.id %>">
+    <input type="hidden" name="_method" value="put">
+    <div class="form-group row">
+      <div class="col-xs-12 col-md-6">
+        <label for="date">Date of Session:</label>
+        <input type="date" class="form-control" id="date" name="date" value="<%= work_session.date %>">
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <label for="description">Description:</label>
+        <input type="text" class="form-control" id="description" name="description" value="<%= work_session.description %>">
+      </div>
     </div>
-    <div class="col-xs-12 col-md-6">
-      <label for="description">Description:</label>
-      <input type="text" class="form-control" id="description" name="description">
+
+    <div class="form-group row">
+      <div class="col-xs-12 col-md-6">
+        <label for="start_time">Start Time:</label>
+        <input type="time" class="form-control" id="start_time" name="start_time" value="<%= work_session.start_time %>">
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <label for="end_time">End Time:</label>
+        <input type="time" class="form-control" id="end_time" name="end_time" value="<%= work_session.end_time %>">
+      </div>
     </div>
-  </div>
 
-  <div class="form-group row">
-    <div class="col-xs-12 col-md-6">
-      <label for="start_time">Start Time:</label>
-      <input type="time" class="form-control" id="start_time" name="start_time">
+    <div class="radio">
+      <label for="is_billable"><input type="radio" class="form-control" id="is_billable" name="is_billable" value="true">Is Billable</label>
     </div>
-    <div class="col-xs-12 col-md-6">
-      <label for="end_time">End Time:</label>
-      <input type="time" class="form-control" id="end_time" name="end_time">
+    <div class="radio">
+      <label for="is_billable"><input type="radio" class="form-control" id="is_billable" name="is_billable" value="false">Is Not Billable</label>
     </div>
-  </div>
 
-  <div class="radio">
-    <label for="is_billable"><input type="radio" class="form-control" id="is_billable" name="is_billable" value="true">Is Billable</label>
-  </div>
-  <div class="radio">
-    <label for="is_billable"><input type="radio" class="form-control" id="is_billable" name="is_billable" value="false">Is Not Billable</label>
-  </div>
+    <p>This work sessions belongs to Project:</p>
+    <select name="project_name">
+        <option value="<%= work_session.project_name %>"><%= work_session.project_name %></option>
+    </select><br>
 
-  <p>This work sessions belongs to Project:</p>
-  <select name="project_name">
-      <option value="<%= work_session.project_name %>"><%= work_session.project_name %></option>
-  </select><br>
-
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+    <button type="submit" class="center-block btn btn-success">Submit</button>
+  </form>
+</div>

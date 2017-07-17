@@ -14,6 +14,6 @@ class App
   end
 
   def filter_sessions(params)
-    sessions = WorkSession.where("is_billable = '#{params[:is_billable]}' and date between '#{params[:start_date]}' and '#{params[:end_date]}'")
+    sessions = WorkSession.where("is_billable = '#{params[:is_billable]}' and date between '#{params[:start_date]}' and '#{params[:end_date]}' and user_id = '#{current_user.id}'")
   end
 end
