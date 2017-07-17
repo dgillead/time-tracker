@@ -1,4 +1,4 @@
-#TO-DO
+# TO-DO
 
 User can:
 * ~~log in~~
@@ -13,6 +13,7 @@ User can:
 * ~~view a work session~~
 * ~~view all work sessions~~
 * ~~edit a work session~~
+* ~~filter work sessions by date range and if billable or not~~
 * see all billable hours
 * see all non-billable hours
 * see all users assigned to projects they own
