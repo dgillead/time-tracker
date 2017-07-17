@@ -7,15 +7,15 @@
     <select name="project_name">
       <option value="<%= work_session.project_name %>"><%= work_session.project_name %></option>
     </select><br>
-    
+
     <div class="form-group row">
       <div class="col-xs-12 col-md-6">
         <label for="date">Date of Session:</label>
-        <input type="date" class="form-control" id="date" name="date" value="<%= work_session.date %>">
+        <input type="date" class="form-control" id="date" name="date" value="<%= work_session.date %>" required>
       </div>
       <div class="col-xs-12 col-md-6">
         <label for="description">Description:</label>
-        <input type="text" class="form-control" id="description" name="description" value="<%= work_session.description %>">
+        <input type="text" class="form-control" id="description" name="description" value="<%= work_session.description %>" required>
       </div>
     </div>
 

@@ -1,3 +1,4 @@
+require 'pry'
 class App
   get '/work_sessions' do
     projects = Project.all
