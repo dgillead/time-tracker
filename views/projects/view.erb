@@ -1,6 +1,13 @@
-<h1><%= project.name %></h1>
-<p><%= project.description %></p>
-<span><%= project.start_date %></span><span><%= project.end_date %></span>
+<h1 class="text-center"><%= project.name %></h1>
+<div class="container">
+<a href="/projects/<%= project.id %>/edit"><button class="center-block btn btn-info">Edit this Project</button>
+
+<div class="panel panel-default">
+  <div class="panel-heading text-center">Description: <%= project.description %></div>
+  <div class="panel-body text-center">
+    Start Date: <%= project.start_date %></span> <span>End Date: <%= project.end_date %>
+  </div>
+</div>
 
 <form action="/projects/<%= project.id %>" method="post">
   <div>
@@ -9,4 +16,4 @@
   </div>
 </form>
 
-<a href="/projects/<%= project.id %>/edit"><button class="btn btn-info">Edit this Project</button>
+</div>

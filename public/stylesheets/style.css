@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: black;
+  background-image: url('/images/clock.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.container {
+  width: 80%;
+}
+
+.list-group-item {
+  width: 50%;
+  border: solid black 2px;
+}
+
+#status-message {
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+  text-shadow: none;
+}
+
+#user-information {
+  font-size: 25px;
+}
+
+.panel {
+  margin-top: 10px;
+}
+
+button {
+  height: 35px;
+  width: 250px;
+}
+
+.btn-danger {
+  margin: 5px;
+}

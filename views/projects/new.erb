@@ -1,27 +1,29 @@
-</h1>Create New Project</h1>
-<form method="post" action="/projects">
+<h1 class="text-center">Create New Project</h1>
+<div class="container">
+  <form method="post" action="/projects">
+
+    <div class="form-group row">
+      <div class="col-xs-12 col-md-6">
+        <label for="name">Name of Project:</label>
+        <input type="text" class="form-control" id="name" name="name">
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <label for="description">Description:</label>
+        <input type="text" class="form-control" id="description" name="description">
+      </div>
+  </div>
 
   <div class="form-group row">
     <div class="col-xs-12 col-md-6">
-      <label for="name">Name of Project:</label>
-      <input type="text" class="form-control" id="name" name="name">
+      <label for="start_date">Start Date:</label>
+      <input type="date" class="form-control" id="start_date" name="start_date">
     </div>
     <div class="col-xs-12 col-md-6">
-      <label for="description">Description:</label>
-      <input type="text" class="form-control" id="description" name="description">
+      <label for="end_date">End Date:</label>
+      <input type="date" class="form-control" id="end_date" name="end_date">
     </div>
-</div>
-
-<div class="form-group row">
-  <div class="col-xs-12 col-md-6">
-    <label for="start_date">Start Date:</label>
-    <input type="date" class="form-control" id="start_date" name="start_date">
   </div>
-  <div class="col-xs-12 col-md-6">
-    <label for="end_date">End Date:</label>
-    <input type="date" class="form-control" id="end_date" name="end_date">
-  </div>
-</div>
 
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+    <button type="submit" class="center-block btn btn-success">Submit</button>
+  </form>
+</div>

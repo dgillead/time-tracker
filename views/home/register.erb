@@ -1,6 +1,7 @@
-<h1>Create a new account</h1>
+<h1 class="text-center">Create a new account</h1>
 <form method="post" action="/register">
   <p><%= status_message %></p>
+  <div class="container">
     <div class="form-group row">
       <div class="col-xs-12 col-md-6">
         <label for="email">Email address:</label>
@@ -28,8 +29,7 @@
         <label for="password">Confirm Password:</label>
         <input type="password" class="form-control" id="password" name="password">
       </div>
-      <div class="col-xs-12 col-md-6">
-        <button type="submit" class="btn btn-default">Submit</button>
-      </div>
     </div>
+    <button type="submit" class="center-block btn btn-success">Submit</button>
+  </div>
 </form>

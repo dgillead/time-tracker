@@ -1,9 +1,15 @@
-<h1>Your Work Sessions</h1>
+<h1 class="text-center">Your Work Sessions</h1>
 
-<% work_sessions.each do |work_session|  %>
-  <a href="/work_sessions/<%= work_session.id %>/view"><li><%= work_session.description %></li></a>
-<% end %>
+<div class="container">
+  <ul class="list-group">
+    <% work_sessions.each do |work_session|  %>
+      <a href="/work_sessions/<%= work_session.id %>/view"><li class="text-center center-block list-group-item"><%= work_session.description %></li></a>
+    <% end %>
+  </ul>
 
-<a href="/work_sessions"><button class="btn btn-success">Create New Work Session</button></a>
-<a href="/projects/<%= user.id %>/list"><button class="btn btn-info">See Your Projects</button></a>
-<a href="/users/<%= current_user.id %>"><button class="btn btn-primary">Your Account</button></a>
+  <div class="text-center">
+    <a href="/work_sessions"><button class="btn btn-success">Create New Work Session</button></a>
+    <a href="/projects/<%= user.id %>/list"><button class="btn btn-info">See Your Projects</button></a>
+    <a href="/users/<%= current_user.id %>"><button class="btn btn-primary">Your Account</button></a>
+  </div>
+</div>
