@@ -1,5 +1,3 @@
-require 'pry'
-
 class App
   get '/projects' do
     erb :'projects/new'

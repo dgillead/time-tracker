@@ -2,6 +2,12 @@
 <div class="container">
   <form method="post" action="/work_sessions/<%= work_session.id %>">
     <input type="hidden" name="_method" value="put">
+
+    <p>This work sessions belongs to Project:</p>
+    <select name="project_name">
+      <option value="<%= work_session.project_name %>"><%= work_session.project_name %></option>
+    </select><br>
+    
     <div class="form-group row">
       <div class="col-xs-12 col-md-6">
         <label for="date">Date of Session:</label>
@@ -24,17 +30,15 @@
       </div>
     </div>
 
-    <div class="radio">
-      <label for="is_billable"><input type="radio" class="form-control" id="is_billable" name="is_billable" value="true">Is Billable</label>
-    </div>
-    <div class="radio">
-      <label for="is_billable"><input type="radio" class="form-control" id="is_billable" name="is_billable" value="false">Is Not Billable</label>
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-primary">
+        <input type="radio" name="is_billable" id="is_billable" value="true">Billable
+      </label>
+      <label class="btn btn-warning">
+        <input type="radio" name="is_billable" id="is_billable" value="false">Not Billable
+      </label>
     </div>
 
-    <p>This work sessions belongs to Project:</p>
-    <select name="project_name">
-        <option value="<%= work_session.project_name %>"><%= work_session.project_name %></option>
-    </select><br>
 
     <button type="submit" class="center-block btn btn-success">Submit</button>
   </form>

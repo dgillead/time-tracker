@@ -1,5 +1,3 @@
-require 'pry'
-
 class App
   get '/' do
     erb :'home/index'

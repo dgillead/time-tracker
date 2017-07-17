@@ -1,5 +1,5 @@
 require_relative '../spec_helper.rb'
-require 'pry'
+
 describe 'project controller' do
 
   describe 'GET /projects' do
@@ -17,13 +17,6 @@ describe 'project controller' do
       expect(last_response.body).to include('start_date')
       expect(last_response.body).to include('end_date')
     end
-  end
-
-  it 'displays information for an individual project' do
-    project = Project.create(name: 'Another Awesome Project', description: 'idk', start_date: '01/01/1989', end_date: '01/01/2000')
-    get "/projects/#{project.id}/view"
-    expect(last_response.body).to include('Another Awesome Project')
-    expect(last_response.body).to include('idk')
   end
 
   describe 'POST /projects' do
@@ -70,7 +63,7 @@ describe 'project controller' do
 
       put "/projects/#{project.id}", params
       project.reload
-      
+
       expect(project.name).to eq('First Project 2.0')
       expect(project.description).to eq('Awesome 2.0')
     end

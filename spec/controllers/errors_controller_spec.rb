@@ -1,4 +1,3 @@
-# spec/errors_controller_spec.rb
 require_relative '../spec_helper.rb'
 
 describe "handling errors" do

@@ -8,9 +8,6 @@ describe 'user controller' do
 
         get "/users/#{user.id}"
 
-        expect(last_response.body).to include('someone@mail.com')
-        expect(last_response.body).to include('Someone')
-        expect(last_response.body).to include('Smith')
         expect(last_response.body).to include('Your Account')
       end
     end

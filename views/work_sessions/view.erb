@@ -1,12 +1,17 @@
 <h1 class="text-center"><%= work_session.description %></h1>
 <h2 class="text-center">This Work Session belongs to Project: <%= work_session.project_name %></h2>
 <div class="container">
-  <a href="/work_sessions/<%= work_session.id %>/edit"><button class="center-block btn btn-info">Edit this Work Session</button></a>
+
+  <div class="text-center">
+    <a href="/work_sessions/<%= work_session.id %>/edit"><button class="btn btn-info">Edit this Work Session</button></a>
+    <a href="/work_sessions/<%= current_user.id %>/list_user"><button class="btn btn-info">See Your Work Sessions</button></a>
+  </div>
 
     <div class="panel panel-default">
       <div class="panel-heading text-center">Description: <%= work_session.description %></div>
       <div class="panel-body text-center">
-        Start Time: <%= work_session.start_time %></span> <span>End Time: <%= work_session.end_time %>
+        <p>Start Time: <%= work_session.start_time %></p>
+        <p>End Time: <%= work_session.end_time %></p>
       </div>
     </div>
 

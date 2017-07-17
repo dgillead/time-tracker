@@ -1,11 +1,16 @@
 <h1 class="text-center"><%= project.name %></h1>
 <div class="container">
-  <a href="/projects/<%= project.id %>/edit"><button class="center-block btn btn-info">Edit this Project</button></a>
+
+  <div class="text-center">
+    <a href="/projects/<%= project.id %>/edit"><button class="btn btn-info">Edit this Project</button></a>
+    <a href="/projects/<%= current_user.id %>/list"><button class="btn btn-info">See Your Projects</button></a>
+  </div>
 
   <div class="panel panel-default">
     <div class="panel-heading text-center">Description: <%= project.description %></div>
     <div class="panel-body text-center">
-      Start Date: <%= project.start_date %></span> <span>End Date: <%= project.end_date %>
+      <p>Start Date: <%= project.start_date %></p>
+      <p>End Date: <%= project.end_date %></p>
     </div>
   </div>
 

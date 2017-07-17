@@ -1,15 +1,22 @@
 #TO-DO
 
 User can:
-* log in (done)
-* log out (done)
-* create a project (done)
-* delete a project (done)
-* view a project (done)
-* view all projects (done)
-* edit a project (done)
-* create a work session (done)
-* delete a work session (done)
-* view a work session (done)
-* view all work sessions (done)
-* edit a work session (done)
+* ~~log in~~
+* ~~log out~~
+* ~~create a project~~
+* ~~delete a project~~
+* ~~view a project~~
+* ~~view all projects~~
+* ~~edit a project~~
+* ~~create a work session~~
+* ~~delete a work session~~
+* ~~view a work session~~
+* ~~view all work sessions~~
+* ~~edit a work session~~
+* see all billable hours
+* see all non-billable hours
+* see all users assigned to projects they own
+
+Misc:
+* complete validations
+* do not allow users to create work session without project
