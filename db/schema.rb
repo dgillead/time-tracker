@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170715004735) do
     t.time    "start_time",   null: false
     t.time    "end_time",     null: false
     t.string  "project_name", null: false
+    t.string  "project_id", null: false
     t.integer "user_id"
   end
 

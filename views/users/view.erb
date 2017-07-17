@@ -9,8 +9,16 @@
   <div class="col-xs-4">
     <span>Email: <%= user.email %></span>
   </div>
-</div>
+  <% user.work_sessions.where(is_billable: "true").each do |ws|  %>
+  <%diff = (((ws.end_time - ws.start_time) / 60) / 60) %>
+    <div class="col-xs-3">
+      <span>hours elapsed: <%= diff.round(2) %></span>
+    </div>
+  <% end %>
+ </div>
+
 
 <a href="/projects/<%= user.id %>/list"><button class="btn btn-info">See Your Projects</button></a>
 <a href="/work_sessions/<%= user.id %>/list_user"><button class="btn btn-info">See Your Work Sessions</button></a>
 <a href="/users/sessions"><button class="btn btn-info">Filter Work Sessions</button></a>
+

@@ -24,7 +24,11 @@ class App
   end
 
   post '/work_sessions' do
-    work_session = WorkSession.new(params)
+    p = {}
+    p["project_id"] = Project.find_by_name( params["project_name"]).id
+    p.merge! params
+
+    work_session = WorkSession.new(p)
     work_session[:user_id] = current_user.id
     if work_session.save
       redirect "work_sessions/#{current_user.id}/list_user"

@@ -7,6 +7,7 @@ gem "database_cleaner"
 
 gem "sqlite3"
 gem "rake"
+gem 'racksh'
 
 gem 'shotgun'
 gem 'pry'
