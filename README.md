@@ -21,3 +21,5 @@ User can:
 Misc:
 * complete validations
 * do not allow users to create work session without project
+* add user account information to account page
+* archive work sessions once a project they belong to is deleted
