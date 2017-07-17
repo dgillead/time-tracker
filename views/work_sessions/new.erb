@@ -3,7 +3,7 @@
   <form method="post" action="/work_sessions">
 
     <p>Select the project this Work Session belongs to:</p>
-    <select name="project_name">
+    <select name="project_name" required>
       <% projects.each do |project| %>
       <option value="<%= project.name %>"><%= project.name %></option>
       <% end %>
@@ -33,10 +33,10 @@
 
     <div class="btn-group" data-toggle="buttons">
       <label class="btn btn-primary">
-        <input type="radio" name="is_billable" id="is_billable" value="true">Billable
+        <input type="radio" name="is_billable" id="is_billable" value="true" required>Billable
       </label>
       <label class="btn btn-warning">
-        <input type="radio" name="is_billable" id="is_billable" value="false">Not Billable
+        <input type="radio" name="is_billable" id="is_billable" value="false" required>Not Billable
       </label>
     </div>
 
